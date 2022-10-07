@@ -1,2 +1,2 @@
-# microservi-os-validacao-compras
+# microserviços-validacao-compras
 microservices in order to validate purchases.
