@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
-@RequestMapping("/pedidos")
+@RequestMapping("/pedido")
 public class PedidoController {
 
     private final PedidoService pedidoService;
 
     @PostMapping
     public ResponseEntity<Pedido> salvar(@RequestBody Pedido pedido){
-        return  ResponseEntity.ok(pedido);
+        return ResponseEntity.ok(pedidoService.salvar(pedido));
 
     }
 }
