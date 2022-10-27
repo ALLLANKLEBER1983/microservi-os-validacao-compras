@@ -1,6 +1,8 @@
 package com.compras.controller.exceptionhandler;
 
 
+import com.compras.service.exception.EntidadeNaoEncontradaException;
+import com.compras.service.exception.NegocioException;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.fasterxml.jackson.databind.exc.PropertyBindingException;
 
