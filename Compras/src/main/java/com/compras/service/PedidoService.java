@@ -2,6 +2,7 @@ package com.compras.service;
 
 import com.compras.model.Pedido;
 import com.compras.repository.PedidoRepository;
+import com.compras.service.rabbitmq.Producer;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +14,12 @@ import org.springframework.stereotype.Service;
 public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
+    private final Producer producer;
 
     public Pedido salvar(Pedido pedido){
-        return pedidoRepository.save(pedido);
+        pedido = pedidoRepository.save(pedido);
+        producer.enviarPedido(pedido);
+        return pedido;
 
     }
 }
