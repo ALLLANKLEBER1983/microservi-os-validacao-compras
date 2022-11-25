@@ -6,6 +6,6 @@ RUN mvn -f /home/app/pom.xml clean package -Dmaven.test.skip=true
 FROM openjdk:11
 COPY --from=build /home/app/target/app.war /user/local/lib/app.war
 EXPOSE 8080
-ENTRYPOINT ("java","-jar","/user/local/lib/app.war")
+ENTRYPOINT ["java","-jar","/user/local/lib/app.war"]
 
 
